@@ -11,7 +11,7 @@
       </div>
       <div class="right-side">
         <delete-program v-if="page=='register/delete'" ref="delete"/>
-        <rating-program v-else-if="page=='schedule/rating'"/>
+        <rating-program v-else-if="page=='schedule/rating'" ref="rating"/>
       </div>
     </main>
   </div>
@@ -24,7 +24,7 @@
   import ScheduleProgram from './LandingPage/ScheduleProgram';
   export default {
     name: 'landing-page',
-    components: { 
+    components: {
       RegisterProgram,
       DeleteProgram,
       RatingProgram,
@@ -40,8 +40,8 @@
         this.$electron.shell.openExternal(link)
       },
       reload() {
-        console.log(this.$refs.delete)
         this.$refs.delete.loadProgram()
+        this.$refs.rating.loadProgram()
       }
     }
   }
@@ -70,7 +70,7 @@ body { font-family: 'Source Sans Pro', sans-serif; }
   width: 100vw;
 }
 .status-bar {
-  width: 100%; 
+  width: 100%;
   height:65px;
   text-align: center;
   margin-bottom: 25px;
@@ -82,7 +82,7 @@ main,
   justify-content: space-between;
 }
 
-main > div { 
+main > div {
   flex-basis: 50%;
 }
 .button.center {
@@ -92,5 +92,9 @@ main > div {
 .left-side {
   display: flex;
   flex-direction: column;
+  padding-left: 15px;
+}
+.right-side {
+    padding-left: 30px;
 }
 </style>

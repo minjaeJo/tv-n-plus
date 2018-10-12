@@ -12,7 +12,6 @@
           <option v-for="program in program_array.program" :value="program.title">{{program.title}}</option>
         </select>
       </div>
-      
     </div>
   </div>
 </template>
@@ -22,7 +21,7 @@ import fs from 'fs';
 import path from 'path';
   export default {
     created() {
-      this.loadProgram(); 
+      this.loadProgram();
     },
     data () {
       return {
